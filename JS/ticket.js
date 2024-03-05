@@ -10,6 +10,12 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 //Chiedo all'utente i km che deve percorrere
 const customerKms = parseInt(prompt('Inserisci il kilometraggio'));
 console.log(customerKms)
+
 //Chiedo all'utente la sua età
 const customerAge = parseInt(prompt ("Inserisci l'età"));
 console.log(customerAge)
+
+//Calcolo il prezzo standard del biglietto
+const pricePerKm = 0.21;
+let ticketBasePrice = customerKms * pricePerKm;
+console.log(ticketBasePrice)
