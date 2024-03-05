@@ -9,16 +9,13 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 
 //Chiedo all'utente i km che deve percorrere
 const customerKms = parseInt(prompt('Inserisci il kilometraggio'));
-console.log(customerKms)
 
 //Chiedo all'utente la sua età
 const customerAge = parseInt(prompt ("Inserisci l'età"));
-console.log(customerAge)
 
 //Calcolo il prezzo standard del biglietto
 const pricePerKm = 0.21;
 const ticketBasePrice = customerKms * pricePerKm;
-console.log(ticketBasePrice)
 
 //Calcolo il prezzo scontato in base all'età
 let ticketDiscount = 0;
@@ -27,17 +24,15 @@ let ticketDiscountPrice = 0;
 if (customerAge < 18) {
     ticketDiscount = (ticketBasePrice / 100) * 20;
     ticketDiscountPrice = (ticketBasePrice - ticketDiscount);
-    console.log(ticketDiscount)
 } else if (customerAge > 65) {
     ticketDiscount = (ticketBasePrice / 100) * 40;
     ticketDiscountPrice = ticketBasePrice - ticketDiscount;
-    console.log(ticketDiscount)
 } else {
     ticketDiscountPrice = ticketBasePrice;
 }
-console.log(ticketDiscountPrice)
 
-//Riduco a massimo 2 cifre decimali il prezzo finale
-const formattedNumber = Math.round(ticketDiscountPrice * 100) / 100;
-console.log(formattedNumber)
+//Riduco a massimo 2 cifre decimali il prezzo finale e lo ritorno al cliente
+const finalPrice = Math.round(ticketDiscountPrice * 100) / 100;
+document.getElementById('final-price').innerHTML = "Totale: €" + finalPrice;
+
 
