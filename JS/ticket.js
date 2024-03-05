@@ -17,5 +17,15 @@ console.log(customerAge)
 
 //Calcolo il prezzo standard del biglietto
 const pricePerKm = 0.21;
-let ticketBasePrice = customerKms * pricePerKm;
+const ticketBasePrice = customerKms * pricePerKm;
 console.log(ticketBasePrice)
+
+//Calcolo il prezzo scontato in base all'età
+let ticketDiscountPrice = 0;
+
+if (customerAge < 18){
+    ticketDiscountPrice = (ticketBasePrice / 100) * 20;
+    const formattedNumber = Math.round(ticketDiscountPrice * 100) / 100
+    console.log(formattedNumber)
+}
+
