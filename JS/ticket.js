@@ -21,11 +21,23 @@ const ticketBasePrice = customerKms * pricePerKm;
 console.log(ticketBasePrice)
 
 //Calcolo il prezzo scontato in base all'età
+let ticketDiscount = 0;
 let ticketDiscountPrice = 0;
 
-if (customerAge < 18){
-    ticketDiscountPrice = (ticketBasePrice / 100) * 20;
-    const formattedNumber = Math.round(ticketDiscountPrice * 100) / 100
-    console.log(formattedNumber)
+if (customerAge < 18) {
+    ticketDiscount = (ticketBasePrice / 100) * 20;
+    ticketDiscountPrice = (ticketBasePrice - ticketDiscount);
+    console.log(ticketDiscount)
+} else if (customerAge > 65) {
+    ticketDiscount = (ticketBasePrice / 100) * 40;
+    ticketDiscountPrice = ticketBasePrice - ticketDiscount;
+    console.log(ticketDiscount)
+} else {
+    ticketDiscountPrice = ticketBasePrice;
 }
+console.log(ticketDiscountPrice)
+
+//Riduco a massimo 2 cifre decimali il prezzo finale
+const formattedNumber = Math.round(ticketDiscountPrice * 100) / 100;
+console.log(formattedNumber)
 
